@@ -2,7 +2,7 @@
 ```bash
 nmcli connection add type ethernet con-name Ethepnet1 ifname eth0 ip4 192.168.0.<АДРЕС>/24
 ```
-## Соединение
+## Соединение (после этого можно подключиться по SSH)
 ```bash
 nmcli connection up Ethernet1
 ```
