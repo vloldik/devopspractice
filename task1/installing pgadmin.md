@@ -9,7 +9,7 @@ IMPORTANT NOTE: Packages for distributions that are no longer supported will be 
 ```bash
 yum remove pgadmin4-redhat-repo-2-1.noarch
 ```
-- updating python (python > 3.12.2) *may be not needed*
+- updating python *may be not needed*
 ```bash
 yum install wget -y
 yum install -y devtoolset-7
