@@ -1,6 +1,6 @@
 1) [x] Развернуть ВМ centos7
 
-2) [ ] Установить postgresql 14.*
+2) [x] Установить postgresql 14.*
 
 3) [ ] Установить pgadmin, проверить подключение к postgresql
 
