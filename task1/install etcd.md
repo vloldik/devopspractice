@@ -1,6 +1,6 @@
-*используется с каждой vm, далее <NO> - номер vm*
+*используется с каждой vm, далее \<NO\> - номер vm*
 
-## 1. Установка etcd *скопировано с [оф. гитхаба](https://github.com/etcd-io/etcd/releases/tag/v3.5.14) и изменено*
+## 1. Установка etcd *скопировано с [оф. гитхаба](https://github.com/etcd-io/etcd/releases/tag/v3.5.14) и изменено
 ```bash
 ETCD_VER=v3.5.14
 
@@ -23,10 +23,10 @@ rm -rf /tmp/etcd-download/
 ```
 
 ```
- etcd --name infra0 --initial-advertise-peer-urls http://192.168.0.124:2380 \
-  --listen-peer-urls http://192.168.0.124:2380 \
-  --listen-client-urls http://192.168.0.124:2379 \
-  --advertise-client-urls http://192.168.0.124:2379 \
+ etcd --name infra<NO> --initial-advertise-peer-urls http://192.168.0.12<NO>:2380 \
+  --listen-peer-urls http://192.168.0.12<NO>:2380 \
+  --listen-client-urls http://192.168.0.12<NO>:2379 \
+  --advertise-client-urls http://192.168.0.12<NO>:2379 \
   --initial-cluster-token etcd-cluster-1 \
   --initial-cluster infra0=http://http://192.168.0.123:2380,infra1=http://192.168.0.124:2380,infra2=http://192.168.0.125:2380 \
   --initial-cluster-state new
