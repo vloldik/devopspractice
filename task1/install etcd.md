@@ -44,7 +44,7 @@ Restart=always
 RestartSec=5s
 LimitNOFILE=40000
 TimeoutStartSec=0
-ExecStart=/usr/bin/etcd --data-dir /var/lib/etcd --name infra<NO> --initial-advertise-peer-urls http://192.168.0.12<NO>:2380   --listen-peer-urls http://192.168.0.12<NO>:2380   --listen-client-urls http://192.168.0.12<NO>:2379   --advertise-client-urls http://192.168.0.12<NO>:2379   --initial-cluster-token etcd-cluster-1   --initial-cluster infra0=http://192.168.0.123:2380,infra1=http://192.168.0.124:2380,infra2=http://192.168.0.125:2380   --initial-cluster-state new
+ExecStart=/usr/bin/etcd --data-dir /var/lib/etcd --name infra<NO> --initial-advertise-peer-urls http://192.168.0.12<NO>:2380   --listen-peer-urls http://192.168.0.12<NO>:2380   --listen-client-urls http://192.168.0.12<NO>:2379,http://127.0.0.1:2379   --advertise-client-urls http://192.168.0.12<NO>:2379   --initial-cluster-token etcd-cluster-1   --initial-cluster infra0=http://192.168.0.123:2380,infra1=http://192.168.0.124:2380,infra2=http://192.168.0.125:2380   --initial-cluster-state new
 
 [Install]
 WantedBy=multi-user.target
