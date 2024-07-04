@@ -21,13 +21,37 @@ cp /tmp/etcd-download/etcd /usr/bin/
 cp /tmp/etcd-download/etcdctl /usr/bin/
 rm -rf /tmp/etcd-download/
 ```
-
 ```
- etcd --name infra<NO> --initial-advertise-peer-urls http://192.168.0.12<NO>:2380 \
-  --listen-peer-urls http://192.168.0.12<NO>:2380 \
-  --listen-client-urls http://192.168.0.12<NO>:2379 \
-  --advertise-client-urls http://192.168.0.12<NO>:2379 \
-  --initial-cluster-token etcd-cluster-1 \
-  --initial-cluster infra0=http://http://192.168.0.123:2380,infra1=http://192.168.0.124:2380,infra2=http://192.168.0.125:2380 \
-  --initial-cluster-state new
+sudo firewall-cmd --permanent --add-port=2379/tcp
+sudo firewall-cmd --permanent --add-port=2380/tcp
+sudo firewall-cmd --reload
+sudo mkdir -p /var/lib/etcd
+sudo chown -R root:$(whoami) /var/lib/etcd
+sudo chmod -R a+rw /var/lib/etcd
+```
+setup service
+```
+cat > /tmp/etcdcluster.service <<EOF
+[Unit]
+Description=etcd
+Documentation=https://github.com/coreos/etcd
+Conflicts=etcd.service
+Conflicts=etcd2.service
+
+[Service]
+Type=notify
+Restart=always
+RestartSec=5s
+LimitNOFILE=40000
+TimeoutStartSec=0
+ExecStart=/usr/bin/etcd --data-dir /var/lib/etcd --name infra<NO> --initial-advertise-peer-urls http://192.168.0.12<NO>:2380   --listen-peer-urls http://192.168.0.12<NO>:2380   --listen-client-urls http://192.168.0.12<NO>:2379   --advertise-client-urls http://192.168.0.12<NO>:2379   --initial-cluster-token etcd-cluster-1   --initial-cluster infra0=http://192.168.0.123:2380,infra1=http://192.168.0.124:2380,infra2=http://192.168.0.125:2380   --initial-cluster-state new
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo mv /tmp/etcdcluster.service /etc/systemd/system/etcdcluster.service
+sudo systemctl daemon-reload
+sudo systemctl enable etcdcluster.service
+sudo systemctl start etcdcluster.service
 ```
