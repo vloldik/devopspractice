@@ -13,7 +13,8 @@ yum remove pgadmin4-redhat-repo-2-1.noarch
 ```bash
 yum install wget -y
 yum install -y devtoolset-7
-yum install openssl-devel bzip2-devel libffi-devel sqlite-devel 
+yum install openssl-devel bzip2-devel libffi-devel sqlite-devel
+yum groupinstall "Development Tools"
 wget https://www.python.org/ftp/python/3.9.8/Python-3.9.8.tgz
 tar xzf Python-3.9.8.tgz
 cd "Python-3.9.8"
