@@ -19,6 +19,7 @@ sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86
 ## Install postres 14
 ```bash
 sudo yum install postgresql14-server
+sudo yum install postgresql14-contrib
 ```
 click y anywhere
 ## initialize database, start service and enable it
