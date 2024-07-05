@@ -14,7 +14,7 @@ yum remove pgadmin4-redhat-repo-2-1.noarch
 yum install wget -y
 yum install -y devtoolset-7
 yum install openssl-devel bzip2-devel libffi-devel sqlite-devel 
-wget https://www.python.org/ftp/python/3.12.4/Python-3.9.18.tgz
+wget https://www.python.org/ftp/python/3.9.8/Python-3.9.8.tgz
 tar xzf Python-3.9.18.tgz
 cd "Python-3.9.18"
 ./configure
