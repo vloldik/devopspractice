@@ -15,8 +15,8 @@ yum install wget -y
 yum install -y devtoolset-7
 yum install openssl-devel bzip2-devel libffi-devel sqlite-devel 
 wget https://www.python.org/ftp/python/3.9.8/Python-3.9.8.tgz
-tar xzf Python-3.9.18.tgz
-cd "Python-3.9.18"
+tar xzf Python-3.9.8.tgz
+cd "Python-3.9.8"
 ./configure
 make -j 4 
 make altinstall
