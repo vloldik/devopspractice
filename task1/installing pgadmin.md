@@ -9,19 +9,8 @@ IMPORTANT NOTE: Packages for distributions that are no longer supported will be 
 ```bash
 yum remove pgadmin4-redhat-repo-2-1.noarch
 ```
-- updating python *may be not needed*
-```bash
-yum install wget -y
-yum install -y devtoolset-7
-yum install openssl-devel bzip2-devel libffi-devel sqlite-devel
-yum groupinstall "Development Tools"
-wget https://www.python.org/ftp/python/3.9.8/Python-3.9.8.tgz
-tar xzf Python-3.9.8.tgz
-cd "Python-3.9.8"
-./configure
-make -j 4 
-make altinstall
-```
+- updating python *may be not needed* [link](https://github.com/vloldik/devopspractice/blob/main/task1/install%20python.md)
+
 - installing pgadmin from [archive](https://pgadmin-archive.postgresql.org/pgadmin4/yum/redhat/rhel-7Server-x86_64/index.html)
 - we need 3 packages:
   - [server](https://pgadmin-archive.postgresql.org/pgadmin4/yum/redhat/rhel-7Server-x86_64/pgadmin4-server-6.9-1.el7.x86_64.rpm)
