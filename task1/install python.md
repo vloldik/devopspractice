@@ -32,7 +32,7 @@ vi /etc/ld.so.conf.d/usr-lib.conf
 ```
 ldconfig -v
 ```
-Теперь комманда `/usr/local/bin/openssl version` должна показывать 3.0.14
+Теперь комманда `/usr/local/ssl/bin/openssl version` должна показывать 3.0.14
 
 Создадим symlink для openssl3 (необязательно)
 ```
