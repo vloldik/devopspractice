@@ -1,0 +1,10 @@
+prefix=/usr/local/ssl
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib64
+includedir=${prefix}/include
+
+Name: openssl3
+Description: OpenSSL library
+Version: 3.0.14
+Libs: -L${libdir} -lcrypto -lssl
+Cflags: -I${includedir}
