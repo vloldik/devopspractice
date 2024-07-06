@@ -1,6 +1,6 @@
 scope: cluster0
 #namespace: /service/
-name: postgresql0
+name: postgresql1
 
 restapi:
   listen: 127.0.0.1:8008
@@ -87,16 +87,12 @@ bootstrap:
 #        archive_timeout: 1800s
 #        archive_command: mkdir -p ../wal_archive && test ! -f ../wal_archive/%f && cp %p ../wal_archive/%f
 #      recovery_conf:
-#        restore_command: cp ../wal_archive/%f %p]
-  method: "init-db"
+#        restore_command: cp ../wal_archive/%f %p
+
   # some desired options for 'initdb'
-  init-db:  # Note: It needs to be a list (some options need values, others are switches)
-    command: "/usr/pgsql-14/bin/postgresql-14-setup initdb"
-    no_params: false
-    auth: "md5"
-    auth-server: "md5"
-    encoding: "UTF8"
-    data-checksums: true
+  initdb:  # Note: It needs to be a list (some options need values, others are switches)
+  - encoding: UTF8
+  - data-checksums
 
   # Additional script to be launched after initial cluster creation (will be passed the connection URL as parameter)
 # post_init: /usr/local/bin/setup_cluster.sh
@@ -106,7 +102,7 @@ postgresql:
   connect_address: 127.0.0.1:5432
 
 #  proxy_address: 127.0.0.1:5433  # The address of connection pool (e.g., pgbouncer) running next to Patroni/Postgres. Only for service discovery.
-  data_dir: data/postgresql0
+  data_dir: /var/lib/pgsql/14/data/postgresql1
 #  bin_dir:
 #  config_dir:
   pgpass: /tmp/pgpass0
