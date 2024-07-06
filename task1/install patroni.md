@@ -1,7 +1,20 @@
 # Загрузим библиотеку, используя питон, установленный во время [настройки pgadmin](https://github.com/vloldik/devopspractice/blob/main/task1/installing%20pgadmin.md)
 ```bash
-pip3.9 install patroni[etcd3]
+pip3.9 install psycopg2-binary
+pip3.9 install patroni[etcd3,psycopg2-binary]
 ```
 ## Схема установки
 ![Схема установки](https://github.com/vloldik/devopspractice/blob/main/task1/scheme.png?raw=true)
-- Имеется заранее установленный postgres на 192.168.0.124, проделаем [тот же процесс](https://github.com/vloldik/devopspractice/blob/main/task1/installing%20PG.md) для 192.168.0.123
+- Имеется заранее установленный postgres на 192.168.0.124, проделаем [тот же процесс](https://github.com/vloldik/devopspractice/blob/main/task1/installing%20PG.md) для 192.168.0.123, за исключением последнего шага с запуском
+- Т.к. при настройке локальных машин была выставлена память в следующей конфигурации:
+  1. 192.168.0.123 - 2048 мб.
+  2. 192.168.0.124 - 1024 мб.
+  3. 192.168.0.125 - 2048 мб.
+
+Прокси сервер будем ставить на машину `ii`, предварительно удалив с нее postgres за ненадобностью ?*процесс удаления не включен*
+Довольно обычным решением будет настроить load balancer следующим образом:
+  - `master` работает на запись
+  - `slave` работает на чтение
+В большей рахитектуре можно было бы раскидать нагрузку круглым робином между slave нодами, но в данной ситуации думаю этого будет достаточно
+
+Используем следующую конфигурацию для patroni, в которой 
