@@ -42,6 +42,7 @@ ln -sf /usr/local/ssl/bin/openssl /bin/openssl3
 Внутри папки `Python-3.11.9` изменим файл на [совместимый с костылем configure файл](https://github.com/vloldik/devopspractice/blob/main/task1/external/configure)
 Добавим библиотеку в LD_LIBRARY и продолжим установку
 ```
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export LD_LIBRARY_PATH=/usr/local/ssl/lib64:$LD_LIBRARY_PATH  
 ./configure
 make -j 4 
