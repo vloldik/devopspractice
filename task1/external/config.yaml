@@ -24,7 +24,7 @@ restapi:
 
 etcd:
   #Provide host to do the initial discovery of the cluster topology:
-  hosts: 192.168.0.123:2379,192.168.0.125:2379
+  hosts: 192.168.0.123:2379,192.168.0.124:2379,192.168.0.125:2379
   #Or use "hosts" to provide multiple endpoints
   #Could be a comma separated string:
   #hosts: host1:port1,host2:port2
