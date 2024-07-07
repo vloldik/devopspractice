@@ -29,7 +29,7 @@ listen stats
     stats auth admin:admin
 
 listen postgres
-    bind 192.168.0.124:5000
+    bind 192.168.0.124:5432
     option httpchk
     http-check expect status 200
     default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
