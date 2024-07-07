@@ -10,6 +10,7 @@
    -  [Переустановка питон](https://github.com/vloldik/devopspractice/blob/main/task1/install%20python.md)
    -  [Установка Patroni](https://github.com/vloldik/devopspractice/blob/main/task1/install%20patroni.md)
    -  [Установка HAProxy](https://github.com/vloldik/devopspractice/blob/main/task1/haproxy.md)
+   -  [Проверка установки через PGAdmin](https://github.com/vloldik/devopspractice/blob/main/task1/pgadmin%20total%20check.md)
 
 7) [ ] Установить ansible
 
