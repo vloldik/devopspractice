@@ -27,7 +27,7 @@ vi /etc/patroni/config.yaml
 Вставим содержимое [файла](https://github.com/vloldik/devopspractice/blob/main/task1/external/config.yaml), заменяя поле `name`, и ip следующим образом:
  - `listen` и `connect_address` должны быть открыты для общения с машинами в сети
  - ip пользователя replicator должен соответствовать ip машин, на которых запущен patroni
- - на проде пароли обязательно сменить
+ - пароли обязательно сменить
 - Открываем порты:
 ```bash
 sudo firewall-cmd --permanent --add-port=8008/tcp --add-port=5432/tcp
