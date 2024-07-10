@@ -42,6 +42,12 @@ ln -sf /usr/local/ssl/bin/openssl /bin/openssl3
 Внутри папки `Python-3.11.9` изменим файл на [совместимый с костылем configure файл](https://github.com/vloldik/devopspractice/blob/main/task1/external/configure)
 
 *Пришлось изменить файл для добавления установленной библиотеки. Можно было ее перезаписать вместо стандартной, но возможны проблемы с сервисами, которые используют предыдущую версию*
+```
+rm configure
+wget https://raw.githubusercontent.com/vloldik/devopspractice/main/task1/external/configure
+chmod 700 configure
+chown <user> configure
+```
 
 Добавим библиотеку в LD_LIBRARY и продолжим установку
 ```bash
